@@ -11,19 +11,8 @@ const alias = { svelte: path.resolve('node_modules', 'svelte') }
 const extensions = ['.mjs', '.js', '.json', '.svelte', '.html']
 const mainFields = ['svelte', 'module', 'browser', 'main']
 
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/**/*.svelte', './src/**/*.html'],
-  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
-})
-const cssnano = require('cssnano')
-
 const preprocess = sveltePreprocess({
-  postcss: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('postcss-nested'),
-    ...(process.env.NODE_ENV === 'production' ? [purgecss, cssnano] : []),
-  ],
+  postcss: true,
 })
 
 module.exports = {
