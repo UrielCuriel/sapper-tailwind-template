@@ -1,0 +1,5 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* Import here your styles */
+/* @import 'base.css'; */
+@import 'tailwindcss/utilities';
